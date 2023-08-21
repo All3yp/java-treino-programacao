@@ -25,6 +25,12 @@ public class CaminhoArquivo {
     }
 
     public static CaminhoArquivo getInstance(Integer id) {
+        if (id == null)
+            throw new Error("O ID não foi informado.");
+
+        if (id <= 0)
+            throw new IllegalArgumentException("ID inválido: " + id);
+
         String diretorioBase = "/tmp/";
         int indice = (id -1) / 1000 + 1; // Calculando o valor do 'indice' usando divisão inteira
 
